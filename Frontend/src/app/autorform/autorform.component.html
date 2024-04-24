@@ -1,0 +1,23 @@
+<section fxLayoutAlign="center">
+    <mat-card fxLayoutAling="center center" fxLayout="column" fxLayoutGap="10px">
+        <div class="five">
+            <h1>Formulario Autor
+            </h1>
+        </div>
+
+
+        <mat-form-field>
+            <mat-label>Ingrese el nombre del autor</mat-label>
+            <input matInput minlength="10" maxlength="80" placeholder="Nombre" name="nombreAutor" [(ngModel)]="autor.nombreAutor" required />
+            <mat-error>Debe ingresar un nombre de longitud 10 a 80</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="registrarAutor()"
+            *ngIf="!autor.idAutor; else elseBlock">Enviar</button>
+        <ng-template #elseBlock>
+            <button mat-raised-button color="primary" (click)="actualizarAutor()">
+                Actualizar Autor
+            </button>
+        </ng-template>
+
+    </mat-card>
+</section>
